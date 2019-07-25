@@ -40,8 +40,10 @@ jQuery.entwine('ss', ($) => {
     perform(el, result, method = 'toggle') {
       if (result) {
         this[method].show(el);
+        el.trigger('displaylogic:on');
       } else {
         this[method].hide(el);
+        el.trigger('displaylogic:off');
       }
     }
   };
