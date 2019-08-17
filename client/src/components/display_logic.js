@@ -40,10 +40,12 @@ jQuery.entwine('ss', ($) => {
     perform(el, result, method = 'toggle') {
       if (result) {
         this[method].show(el);
-        el.trigger('displaylogic:on');
+        const e = new Event('displaylogic:on');
+        el[0].dispatchEvent(e);
       } else {
         this[method].hide(el);
-        el.trigger('displaylogic:off');
+        const e = new Event('displaylogic:off');
+        el[0].dispatchEvent(e);
       }
     }
   };

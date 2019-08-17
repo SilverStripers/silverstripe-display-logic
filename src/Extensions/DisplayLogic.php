@@ -37,7 +37,7 @@ class DisplayLogic extends Extension
      * @param  string $master The name of the master field
      * @return Criteria
      */
-    public function displayIf($master)
+    public function displayIf($master = null)
     {
         $class ="display-logic display-logic-hidden display-logic-display";
         $this->owner->addExtraClass($class);
@@ -55,7 +55,7 @@ class DisplayLogic extends Extension
      * @param  string $master The name of the master field
      * @return Criteria
      */
-    public function hideIf($master)
+    public function hideIf($master = null)
     {
         $class = "display-logic display-logic-hide";
         $this->owner->addExtraClass($class);
@@ -72,7 +72,7 @@ class DisplayLogic extends Extension
      * @param  string $master The name of the master field
      * @return Criteria
      */
-    public function displayUnless($master)
+    public function displayUnless($master = null)
     {
         return $this->owner->hideIf($master);
     }
@@ -83,7 +83,7 @@ class DisplayLogic extends Extension
      * @param  string $master The name of the master field
      * @return Criteria
      */
-    public function hideUnless($master)
+    public function hideUnless($master = null)
     {
         return $this->owner->displayIf($master);
     }
