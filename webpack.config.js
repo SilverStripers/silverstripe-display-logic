@@ -18,6 +18,8 @@ const PATHS = {
   DIST: Path.resolve('client/dist'),
 };
 
+console.log(`${PATHS.SRC}/bundles/bundle.js`);
+
 const config = [
   {
     name: 'js',

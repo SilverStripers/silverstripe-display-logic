@@ -2,8 +2,7 @@
   "name": "display-logic",
   "version": "4.0.0",
   "description": "Display logic module for interface",
-  "directories": {
-  },
+  "directories": {},
   "bin": {
     "webpack": "./node_modules/webpack/webpack.js"
   },

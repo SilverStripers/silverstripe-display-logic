@@ -199,6 +199,12 @@ _jquery2.default.entwine('ss', function ($) {
     evaluateNotEmpty: function evaluateNotEmpty() {
       return !this.evaluateEmpty();
     },
+    isDateAgo: function isDateAgo(val) {
+      var date = new Date(this.getFieldValue());
+      var today = new Date();
+      var diff = (date.getTime() - today.getTime()) / (365 * 24 * 60 * 60 * 1000);
+      return diff >= val;
+    },
     evaluateBetween: function evaluateBetween(minmax) {
       var v = parseFloat(this.getFieldValue());
       var parts = minmax.split('-');

@@ -15,12 +15,13 @@ UncleCheese\DisplayLogic\Criteria:
     - hasCheckedOption
     - hasCheckedAtLeast
     - hasCheckedLessThan
+    - isDateAgo
   animations:
     - toggle
     - slide
     - fade
   default_animation: toggle
-    
+
 SilverStripe\Forms\FormField:
   extensions:
     - UncleCheese\DisplayLogic\Extensions\DisplayLogic

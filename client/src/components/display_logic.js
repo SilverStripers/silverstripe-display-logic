@@ -148,6 +148,13 @@ jQuery.entwine('ss', ($) => {
       return !this.evaluateEmpty();
     },
 
+    isDateAgo(val) {
+      const date = new Date(this.getFieldValue());
+      const today = new Date();
+      let diff = (date.getTime() - today.getTime()) / (365 * 24 * 60 * 60 * 1000);
+      return diff >= val;
+    },
+
     evaluateBetween(minmax) {
       const v = parseFloat(this.getFieldValue());
       const parts = minmax.split('-');
