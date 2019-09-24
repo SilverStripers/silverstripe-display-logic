@@ -199,11 +199,26 @@ _jquery2.default.entwine('ss', function ($) {
     evaluateNotEmpty: function evaluateNotEmpty() {
       return !this.evaluateEmpty();
     },
-    isDateAgo: function isDateAgo(val) {
+    evaluateDateAgo: function evaluateDateAgo(val) {
+      val = parseInt(val);
+      var date = new Date(this.getFieldValue());
+      var today = new Date();
+      var diff = (today.getTime() - date.getTime()) / (365 * 24 * 60 * 60 * 1000);
+      return diff >= val;
+    },
+    evaluateDateAfter: function evaluateDateAfter(val) {
+      val = parseInt(val);
       var date = new Date(this.getFieldValue());
       var today = new Date();
       var diff = (date.getTime() - today.getTime()) / (365 * 24 * 60 * 60 * 1000);
-      return diff >= val;
+      return diff <= val;
+    },
+    evaluateDateEqual: function evaluateDateEqual(val) {
+      val = parseInt(val);
+      var date = new Date(this.getFieldValue());
+      var today = new Date();
+      var diff = (today.getTime() - date.getTime()) / (365 * 24 * 60 * 60 * 1000);
+      return diff = val;
     },
     evaluateBetween: function evaluateBetween(minmax) {
       var v = parseFloat(this.getFieldValue());
@@ -314,7 +329,7 @@ _jquery2.default.entwine('ss', function ($) {
     }
   });
 
-  $('div.display-logic-master input[type="text"], ' + 'div.display-logic-master input[type="email"], ' + 'div.display-logic-master input[type="numeric"]').entwine({
+  $('div.display-logic-master input[type="text"], ' + 'div.display-logic-master input[type="date"], ' + 'div.display-logic-master input[type="email"], ' + 'div.display-logic-master input[type="numeric"]').entwine({
     onmatch: function onmatch() {
       this.closest('.display-logic-master').notify();
     },

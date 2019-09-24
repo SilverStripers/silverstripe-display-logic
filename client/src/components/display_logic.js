@@ -148,11 +148,28 @@ jQuery.entwine('ss', ($) => {
       return !this.evaluateEmpty();
     },
 
-    isDateAgo(val) {
+    evaluateDateAgo(val) {
+      val = parseInt(val);
+      const date = new Date(this.getFieldValue());
+      const today = new Date();
+      let diff = (today.getTime() - date.getTime()) / (365 * 24 * 60 * 60 * 1000);
+      return diff >= val;
+    },
+
+    evaluateDateAfter(val) {
+      val = parseInt(val);
       const date = new Date(this.getFieldValue());
       const today = new Date();
       let diff = (date.getTime() - today.getTime()) / (365 * 24 * 60 * 60 * 1000);
-      return diff >= val;
+      return diff <= val;
+    },
+
+    evaluateDateEqual(val) {
+      val = parseInt(val);
+      const date = new Date(this.getFieldValue());
+      const today = new Date();
+      let diff = (today.getTime() - date.getTime()) / (365 * 24 * 60 * 60 * 1000);
+      return diff = val;
     },
 
     evaluateBetween(minmax) {
@@ -275,6 +292,7 @@ jQuery.entwine('ss', ($) => {
 
 
   $('div.display-logic-master input[type="text"], ' +
+    'div.display-logic-master input[type="date"], ' +
     'div.display-logic-master input[type="email"], ' +
     'div.display-logic-master input[type="numeric"]').entwine({
     onmatch() {

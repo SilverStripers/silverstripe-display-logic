@@ -16,6 +16,8 @@ UncleCheese\DisplayLogic\Criteria:
     - hasCheckedAtLeast
     - hasCheckedLessThan
     - isDateAgo
+    - isDateEqual
+    - isDateAfter
   animations:
     - toggle
     - slide
